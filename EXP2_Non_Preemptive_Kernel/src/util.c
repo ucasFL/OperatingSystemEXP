@@ -27,7 +27,7 @@ void printstr(char *s)
 	int i;
 	unsigned long port = PORT3f8;
 	while (*s) {
-		i=10000;
+		i=500;
 		while(i--);
 		*(unsigned char*)port = *s;
 		s++;
