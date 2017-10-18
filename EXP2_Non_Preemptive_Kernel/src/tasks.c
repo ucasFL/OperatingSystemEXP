@@ -32,20 +32,21 @@ static struct task_info design_review_4 = { (uint32_t) & thread14, KERNEL_THREAD
 
 
 /* test for task 1 */
-static struct task_info *task[] = {&task1, &task2,&task3, &task4};
+//static struct task_info *task[] = {&task1, &task2,&task3, &task4};
 
 /* test for task 2 */
-// static struct task_info *task[] = { 
-//   &time_switch_1, &time_switch_2, &time_switch_3}; 
+//static struct task_info *task[] = {
+//    &time_switch_1, &time_switch_2, &time_switch_3};
 
 /* test for task 3*/
 //static struct task_info *task[] = {&design_review_1, &design_review_2, &design_review_3, &design_review_4};
 
+//static struct task_info *task[] = {&task2, &task3};
 
 /* all test */
-//static struct task_info *task[] = {&task1, &task2,&task3, &task4, &task5, 
-//	 &design_review_1,
-//	&design_review_2, &design_review_3, &design_review_4};
+static struct task_info *task[] = {&task1, &task2,&task3, &task4, &task5,
+	 &design_review_1,
+	&design_review_2, &design_review_3, &design_review_4};
 
 enum {
     NUM_TASKS = sizeof task / sizeof(struct task_info *)

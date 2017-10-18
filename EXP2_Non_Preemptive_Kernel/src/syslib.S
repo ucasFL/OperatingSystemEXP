@@ -4,7 +4,7 @@
 /* address of kernel_entry function may be modified, zxj */
 #define SYSCALL(i) \
 	li a0,i; \
-	li $8,0xa08004e0; \
+	li $8,0xa08004d0; \
 	jal $8; \
 	nop
 	nop

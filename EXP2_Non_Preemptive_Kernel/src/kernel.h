@@ -21,9 +21,9 @@ enum {
  * Only memory below STACK_MAX should be used for stacks
  */
 enum {
-    STACK_MIN = 0xC0000000,
-    STACK_SIZE = 0x0100000,
-    STACK_MAX = 0xE0000000,
+    STACK_MIN = 0xa0880000,
+    STACK_SIZE = 0x1000,
+    STACK_MAX = 0xa0890000,
 };
 
 typedef enum {

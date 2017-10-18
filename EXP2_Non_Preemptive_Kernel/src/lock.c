@@ -13,7 +13,7 @@
 #include "scheduler.h"
 
 enum {
-	SPIN = TRUE,
+	SPIN = FALSE,
 };
 
 void lock_init(lock_t * l)
@@ -21,6 +21,7 @@ void lock_init(lock_t * l)
 	if (SPIN) {
 		l->status = UNLOCKED;
 	} else {
+		l->status = UNLOCKED;
 		/* need student add */
 	}
 }
@@ -34,6 +35,10 @@ void lock_acquire(lock_t * l)
 		}
 		l->status = LOCKED;
 	} else {
+		if (l->status == LOCKED)
+		  block();
+		else
+		  l->status = LOCKED;
 		/* need student add */
 	}
 }
@@ -43,6 +48,9 @@ void lock_release(lock_t * l)
 	if (SPIN) {
 		l->status = UNLOCKED;
 	} else {
+		l->status = UNLOCKED;
+		if(unblock())
+		  l->status = LOCKED;
 		/* need student add */
 	}
 }

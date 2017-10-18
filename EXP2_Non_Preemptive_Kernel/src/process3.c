@@ -4,5 +4,7 @@
 
 void _start(void)
 {
+	yield();
+	exit();
 	/* need student add */
 }

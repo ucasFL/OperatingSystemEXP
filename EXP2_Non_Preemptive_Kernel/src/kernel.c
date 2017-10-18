@@ -68,11 +68,10 @@ void _stat(void){
 	int i, j;
 	ready_queue->capacity = NUM_TASKS;
 	ready_queue->pcbs = ready_array;
-	uint32_t sp[NUM_TASKS] = {0xa0890000, 0xa0889000, 0xa0888000, 0xa0887000};
 	for (i = 0; i < NUM_TASKS; i++ ){
 		for (j = 0; j < NUM_REGISTERS; j++ )
 		  ready_arr[i].reg[j] = 0;
-		ready_arr[i].sp = sp[i];
+		ready_arr[i].sp = STACK_MAX - i * STACK_SIZE ;
 		ready_arr[i].ra = task[i]->entry_point;
 		ready_arr[i].state = PROCESS_READY;
 	}
@@ -81,8 +80,8 @@ void _stat(void){
 	  queue_push(ready_queue, &ready_arr[i]);
 	/* need student add */
 
-	//blocked_queue->pcbs = blocked_arr;
-	//blocked_queue->capacity = NUM_TASKS;
+	blocked_queue->pcbs = blocked_arr;
+	blocked_queue->capacity = NUM_TASKS;
 	/*Schedule the first task */
 	scheduler_count = 0;
 	scheduler_entry();
